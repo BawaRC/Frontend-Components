@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blurred Background Overlay Card</title>
+    <style>
+        body{
+            background-color: #0b0820;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width:100vw;
+            height:100vh;
+            overflow:hidden;
+        }
+        .card{
+            width: 250px;
+            height: 350px;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+        }
+        .card{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .card-inner{
+            color:White;
+            font-size: x-large;
+            font-family: cursive;
+        }
+        .circle{
+            z-index: 0;
+            position:absolute;
+            height:150px;
+            width:150px; 
+            border-radius: 50%;
+            background: radial-gradient(circle, hsla(245, 100%, 68%, 1) 0%, rgb(7, 199, 242) 100%);
+        }
+        .circle:nth-of-type(1){
+            transform:translate(90px,150px);
+            animation: up-down 2s linear 0s infinite alternate;
+        }
+
+        .circle:nth-child(2){
+            transform: translate(-90px,-150px);
+            animation: up-down2 2s linear 0s infinite alternate;
+        }
+
+        @keyframes up-down {
+            0%   { transform:translate(90px,150px); }
+            100% { transform:translate(90px,120px); }
+        }
+        @keyframes up-down2 {
+            0%   { transform:translate(-90px,-150px); }
+            100% { transform:translate(-90px,-120px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="card">
+        <div class="card-inner">Card content</div>
+        <div class="card-inner">goes here</div>
+    </div>
+</body>
+</html>
